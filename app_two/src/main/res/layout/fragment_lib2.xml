@@ -1,0 +1,14 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.linkever.jni.study.app_two.libtwo.Lib2Fragment">
+
+    <TextView
+        android:id="@+id/lib2_text"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Lib_Two_Fragment" />
+
+</FrameLayout>
