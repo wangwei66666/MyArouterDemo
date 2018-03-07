@@ -37,6 +37,7 @@ public class Lib2Fragment extends Fragment{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        EventBus.getDefault().register(this);
         lib2Text = (TextView) view.findViewById(R.id.lib2_text);
     }
 
@@ -49,10 +50,16 @@ public class Lib2Fragment extends Fragment{
         return view;
     }
 
-//    @Subscribe(threadMode = ThreadMode.MAIN)
-//    public void onGetEvent(MyEvent myEvent){
-//        lib2Text.setText(myEvent.getStr());
-//    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onGetEvent(MyEvent myEvent){
+        lib2Text.setText(String.format("Oh:%s",myEvent.getStr()));
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        EventBus.getDefault().unregister(this);
+    }
 
     @Override
     public void onDestroy() {

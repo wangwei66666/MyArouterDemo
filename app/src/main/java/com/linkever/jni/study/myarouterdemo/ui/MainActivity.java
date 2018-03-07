@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        EventBus.getDefault().register(this);
+//        EventBus.getDefault().register(this);
         initView();
         fragmentManager=getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
@@ -77,14 +77,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onGetEvent(MyEvent myEvent){
-        ((TextView)lib2Fragment.getActivity().findViewById(R.id.lib2_text)).setText(myEvent.getStr());
-    }
+//    @Subscribe(threadMode = ThreadMode.MAIN)
+//    public void onGetEvent(MyEvent myEvent){
+//        ((TextView)lib2Fragment.getActivity().findViewById(R.id.lib2_text)).setText(myEvent.getStr());
+//    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
+//        EventBus.getDefault().unregister(this);
     }
 }
